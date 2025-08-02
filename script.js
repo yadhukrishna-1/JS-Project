@@ -21,3 +21,41 @@ function handleSearch(event) {
         window.location.href = "products.html";
     }
 }
+
+
+//  NEEDTO STUDAY START
+
+// Dark/Light mode logic
+function toggleTheme() {
+    const body = document.body;
+    const logo = document.querySelector('.navbar-brand img');
+    const btn = document.getElementById('theme-toggle');
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+        logo.src = 'media/Logo-dark.png'; // Use your dark logo file
+        btn.innerText = '🤍';
+        btn.classList.remove('btn-outline-dark');
+        btn.classList.add('btn-outline-light');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        logo.src = 'media/Logo.png';
+        btn.innerText = '🖤';
+        btn.classList.remove('btn-outline-light');
+        btn.classList.add('btn-outline-dark');
+        localStorage.setItem('theme', 'light');
+    }
+}
+// On page load, set theme from localStorage
+window.addEventListener('DOMContentLoaded', () => {
+    const theme = localStorage.getItem('theme');
+    if (theme === '🖤') {
+        document.body.classList.add('dark-mode');
+        document.querySelector('.navbar-brand img').src = 'media/Logo-dark.png';
+        const btn = document.getElementById('theme-toggle');
+        btn.innerText = '🤍';
+        btn.classList.remove('btn-outline-dark');
+        btn.classList.add('btn-outline-light');
+    }
+});
+
+// NEEDTO STUDAY END
