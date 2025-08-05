@@ -2,79 +2,116 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <!-- You may also want to include the Poppins font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phlox - Electronics Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="newStyle.css">
+
+  <style>
+    /* html,
+      body {
+        height: 10%;
+        margin: 0;
+      } */
+  
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    /* This pushes the footer down */
+    /* main {
+        flex: 1;
+      } */
+  </style>
 </head>
 
-<body>
-
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-md navbar-light" id="navbar">
-        <div class="container-fluid d-flex align-items-center justify-content-between">
-            <a class="navbar-brand d-flex align-items-center" href="#hero-bg">
-                <img src="media/Logo.png" alt="Logo" class="m-2" width="60px" />
-                <div class="brand-text">
-                    <div class="brand-name">Electra<span style="color: #fc8c06;">Cart</span></div>
-                    <div class="tagline">GADGET STORE</div>
-                </div>
-            </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                
-                <div class="navbar-nav">
-                <!-- search bar -->
-                <form class="d-flex me-3" onsubmit="handleSearch(event)">
-                    <input class="form-control me-2" type="search"
-                        placeholder="Search for products..." aria-label="Search" name="query">
-                </form>
-
-                <!-- Dark/Light mode toggle button -->
-                <button id="theme-toggle" class="btn btn-outline-dark me-3" onclick="toggleTheme()" aria-label="Toggle dark mode">
-                    🖤
-                </button>
-
-                <a class="nav-link" aria-current="page" href="Home.html">Home</a>
-                <a class="nav-link" href="products.html">Shop</a>
-                <a class="nav-link" href="cart.html">Cart</a>
-                <a class="nav-link" href="cart.html">About</a>
-                <a class="nav-link fw-bolder" href="Login.html">Login</a>
+<body class="vh-100">
+  <!-- Navbar Start -->
+  <header class="bg-white position-fixed w-100 top-0 start-0 shadow-sm" style="z-index:1050;">
+    <nav class="navbar navbar-expand-md navbar-light bg-white">
+      <div class="container-fluid">
+        <div class="d-flex align-items-center">
+          <img src="media/Home/Logolight.png" alt="ElectraCart Logo" class="logo-img" id="logo-img">
+          <div class="logo d-flex flex-column ms-2" style="line-height:1;">
+            <div style="font-size:2rem; font-weight:400; letter-spacing:0.5px;">
+              <span style="color:#222; font-weight:400;" class="dark-text">Electra</span><span
+                style="color:#ff9800; font-weight:400;">Cart</span>
             </div>
-            </div>
+            <div
+              style="font-size:14px; letter-spacing:0.4em; color:#222; opacity:0.8; margin-top:0.2em; font-weight:200;"
+              class="dark-text">
+              GADGET STORE</div>
+          </div>
         </div>
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="bi bi-list" style="font-size:2rem;"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+            <li class="nav-item"><a href="Home.html" class="nav-link fw-bold text-dark">Home</a></li>
+            <li class="nav-item"><a href="products.html" class="nav-link fw-bold text-dark">Shop</a></li>
+            <li class="nav-item"><a href="#" class="nav-link fw-bold text-dark">About Us</a></li>
+            <li class="nav-item"><a href="#" class="nav-link fw-bold text-dark">Blog</a></li>
+            <li class="nav-item"><a href="#" class="nav-link fw-bold text-dark">Contact Us</a></li>
+          </ul>
+          <div class="d-flex align-items-center ms-md-3 mt-3 mt-md-0">
+            <button id="darkModeToggle" class="btn btn-outline-dark me-3" aria-label="Toggle dark mode"><i
+                class="bi bi-moon"></i></button>
+            <a href="Login.html" class="me-3 fw-bold text-dark text-decoration-none">Login</a>
+            <a href="cart.html" class="d-inline-block"
+              style="width:40px; height:40px; background:#000; border-radius:50%; text-align:center; line-height:40px;">
+              <i class="bi bi-cart3" style="color:#fff; font-size:1.3rem;"></i>
+            </a>
+          </div>
+        </div>
+      </div>
     </nav>
-    <!-- navbar End-->
+  </header>
+  <!-- Navbar End -->
+  <main class="flex-grow-1 mt-5">
+    <div class="d-flex justify-content-center align-items-center" style="padding-top: 90px;">
+      <form class="bg-white card shadow p-4 rounded-4 login" style="width: 100%; max-width: 400px;"
+        onsubmit="login(event)">
+        <h3 class="text-center mb-4 text-dark">Login</h3>
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Username" id="username" required />
+        </div>
+        <div class="mb-3">
+          <input type="password" class="form-control" placeholder="Password" id="password" required />
+        </div>
+        <button type="submit" class="btn btn-warning w-100 fw-bold">Login</button>
+        <div class="text-center mt-3">
+          <span class="text-dark">Or </span>
+          <a href="Register.html" class="fw-bold text-decoration-none text-wa">Register</a>
+        </div>
+      </form>
 
-    <form class="container mt-5" onsubmit="login(event)">
-        <input type="text" class="form-control mb-2" placeholder="Username" id="username" required />
-        <input type="password" class="form-control mb-2" placeholder="Password" id="password" required />
-        <button type="submit" class="btn btn-primary">Login</button>
-    </form>
+    </div>
+  </main>
+  <!-- Main Content End -->
 
-    <script>
-        function login(e) {
-            e.preventDefault();
-            const username = document.getElementById("username").value;
-            localStorage.setItem("user", username);
-            alert("Logged in as " + username);
-            window.location.href = "index.html";
-        }
-    </script>
+  <!-- Footer -->
+  <footer class="bg-white text-light pb-0 mb-0">
+    <div class="container">
+      <hr class="mt-4" style="border-color:#ff8000;">
+      <div class="text-center small dark-text text-dark">
+        &copy; 2025 ElectraCart. All rights reserved.
+      </div>
+    </div>
+  </footer>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
 
 
 </body>

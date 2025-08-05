@@ -1,0 +1,172 @@
+/* General Body & Typography */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #f9f9f9;
+  color: #000;
+}
+
+/* Logo */
+.logo-img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f2f2f2;
+  padding: 50px;
+}
+
+.hero-text {
+  max-width: 50%;
+}
+
+.hero img {
+  max-width: 40%;
+  height: auto;
+  min-width: 300px;
+}
+
+/* Categories Section */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 40px;
+}
+
+.category {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.category img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Sale Banner */
+.sale-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #e60000;
+  color: white;
+  padding: 50px;
+  margin: 20px 0;
+}
+
+/* Features Section */
+.features {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  background: #fff;
+}
+
+.feature {
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+footer h5 {
+  color: #fc8c06 !important;
+}
+
+footer .btn,
+footer .btn:focus,
+footer .btn:active {
+  background-color: #fc8c06 !important;
+  color: #232323 !important;
+  border: none;
+}
+
+footer .form-control {
+  border-radius: 5px;
+  border: 1px solid #fc8c06;
+}
+
+footer .fs-5 i {
+  color: #fc8c06 !important;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background: #181818;
+  color: #f1f1f1;
+}
+
+.dark-mode .bg-white {
+  background: #232323 !important;
+}
+
+/* dark mode text */
+.dark-mode .dark-text {
+  color: #f1f1f1 !important;
+}
+
+.dark-mode .text-dark {
+  color: #f1f1f1 !important;
+}
+
+.dark-mode .category {
+  background: #232323;
+  color: #f1f1f1;
+}
+
+.dark-mode .category.text-white {
+  color: #fff;
+}
+
+.dark-mode .btn-light {
+  background: #333 !important;
+  color: #fff !important;
+  border: 1px solid #444;
+}
+
+.dark-mode .btn-dark {
+  background: #fff !important;
+  color: #232323 !important;
+  border: 1px solid #444;
+}
+
+.dark-mode .sale-banner {
+  background: #b71c1c;
+  color: #fff;
+}
+
+.dark-mode footer {
+  background: #111;
+  color: #cccccc;
+}
+
+.Laptop-products {
+  margin: 20px 0;
+}
+
+/* Hide scrollbar for horizontal scroll container */
+#laptopScroll {
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+#laptopScroll::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari */
+}
+
+/* Responsive Adjustments using Bootstrap classes only */
+/* No custom media queries needed, use Bootstrap grid and utility classes */

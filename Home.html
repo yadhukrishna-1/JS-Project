@@ -2,218 +2,322 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ElectraCart</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css" />
-    <!-- You may also want to include the Poppins font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phlox - Electronics Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="newStyle.css">
 </head>
 
 <body>
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-md navbar-light" id="navbar">
-        <div class="container-fluid d-flex align-items-center justify-content-between">
-            <a class="navbar-brand d-flex align-items-center" href="#hero-bg">
-                <img src="media/Logo.png" alt="Logo" class="m-2" width="60px" />
-                <div class="brand-text">
-                    <div class="brand-name">Electra<span style="color: #fc8c06;">Cart</span></div>
-                    <div class="tagline">GADGET STORE</div>
-                </div>
+  <!-- Navbar Start -->
+  <header class="bg-white position-fixed w-100 top-0 start-0 shadow-sm" style="z-index:1050;">
+    <nav class="navbar navbar-expand-md navbar-light bg-white">
+      <div class="container-fluid">
+        <div class="d-flex align-items-center">
+          <img src="media/Home/Logolight.png" alt="ElectraCart Logo" class="logo-img" id="logo-img">
+          <div class="logo d-flex flex-column ms-2" style="line-height:1;">
+            <div style="font-size:2rem; font-weight:400; letter-spacing:0.5px;">
+              <span style="color:#222; font-weight:400;" class="dark-text">Electra</span><span
+                style="color:#ff9800; font-weight:400;">Cart</span>
+            </div>
+            <div class="dark-text"
+              style="font-size:14px; letter-spacing:0.4em; color:#222; opacity:0.8; margin-top:0.2em; font-weight:200;">
+              GADGET STORE</div>
+          </div>
+        </div>
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="bi bi-list" style="font-size:2rem;"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+            <li class="nav-item"><a href="Home.html" class="nav-link fw-bold text-dark">Home</a></li>
+            <li class="nav-item"><a href="products.html" class="nav-link fw-bold text-dark">Shop</a></li>
+            <li class="nav-item"><a href="#" class="nav-link fw-bold text-dark">About Us</a></li>
+            <li class="nav-item"><a href="#" class="nav-link fw-bold text-dark">Blog</a></li>
+            <li class="nav-item"><a href="#" class="nav-link fw-bold text-dark">Contact Us</a></li>
+          </ul>
+          <div class="d-flex align-items-center ms-md-3 mt-3 mt-md-0">
+            <button id="darkModeToggle" class="btn btn-outline-dark me-3" aria-label="Toggle dark mode"><i
+                class="bi bi-moon"></i></button>
+            <a href="Login.html" class="me-3 fw-bold text-dark text-decoration-none">Login</a>
+            <a href="cart.html" class="d-inline-block"
+              style="width:40px; height:40px; background:#000; border-radius:50%; text-align:center; line-height:40px;">
+              <i class="bi bi-cart3" style="color:#fff; font-size:1.3rem;"></i>
             </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                
-                <div class="navbar-nav">
-                <!-- search bar -->
-                <form class="d-flex me-3" onsubmit="handleSearch(event)">
-                    <input class="form-control me-2" type="search"
-                        placeholder="Search for products..." aria-label="Search" name="query">
-                </form>
-
-                <!-- Dark/Light mode toggle button -->
-                <button id="theme-toggle" class="btn btn-outline-dark me-3" onclick="toggleTheme()" aria-label="Toggle dark mode">
-                    🖤
-                </button>
-
-                <a class="nav-link" aria-current="page" href="Home.html">Home</a>
-                <a class="nav-link" href="products.html">Shop</a>
-                <a class="nav-link" href="cart.html">Cart</a>
-                <a class="nav-link" href="cart.html">About</a>
-                <a class="nav-link fw-bolder" href="Login.html">Login</a>
-            </div>
-            </div>
+          </div>
         </div>
+      </div>
     </nav>
-    <!-- navbar End-->
+  </header>
+  <!-- Navbar End -->
 
-    <!-- Hero section started -->
-    <div class="Hero container-fluid p-1">
-        <h1>Welcome to ElectraCart</h1>
-        <h3 class="mt-3">Your one-stop shop for electronics, fashion, and more.</h3>
-        <button class="btn btn-dark mt-4 mb-3" id="start-button">Start Shopping</button>
+  <section class="hero">
+    <div class="hero-text" style="color: black;">
+      <h1>Beats Solo Wireless HEADPHONE</h1>
+      <p>Description: There are many variations of passages of Lorem Ipsum available...</p>
+      <button class="btn btn-danger">Shop By Category</button>
     </div>
-    <!-- Hero section End -->
+    <img src="media/Home/headphone.png" alt="Wireless Headphones">
+  </section>
 
-    <!-- shop Category start-->
-    <div class="container mt-3">
-        <div class="Category row g-3">
-            <div class="col-4 col-md-2 d-flex align-items-stretch">
-                <div class="item w-100">
-                    <a href="products.html" class="text-decoration-none text-dark">
-                        <img src="media/phone_tablet.jpg" alt="Phone & Tablet" width="80%" class="mx-auto d-block rounded">
-                        <div class="card-body">
-                            <h5 class="card-title" style="color: inherit;">Phone & Tablet</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-4 col-md-2 d-flex align-items-stretch">
-                <div class="item w-100">
-                    <a href="products.html" class="text-decoration-none text-dark">
-                        <img src="media/laptop.jpg" alt="Computers & Laptops" width="80%" class="mx-auto d-block rounded">
-                        <div class="card-body">
-                            <h5 class="card-title" style="color: inherit; ">Computers & Laptops</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-4 col-md-2 d-flex align-items-stretch">
-                <div class="item w-100">
-                    <a href="products.html" class="text-decoration-none text-dark">
-                        <img src="media/Audio.jpg" alt="Audio Devices" width="80%" class="mx-auto d-block rounded">
-                        <div class="card-body">
-                            <h5 class="card-title" style="color: inherit;">Audio Devices</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-4 col-md-2 d-flex align-items-stretch">
-                <div class="item w-100">
-                    <a href="products.html" class="text-decoration-none text-dark">
-                        <img src="media/TV.jpg" alt="TVs & Home Entertainment" width="80%" class="mx-auto d-block rounded">
-                        <div class="card-body">
-                            <h5 class="card-title" style="color: inherit;">TVs & Home Entertainment</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-4 col-md-2 d-flex align-items-stretch">
-                <div class="item w-100">
-                    <a href="products.html" class="text-decoration-none text-dark">
-                        <img src="media/Camera.jpg" alt="Cameras & Photography" width="80%" class="mx-auto d-block rounded">
-                        <div class="card-body">
-                            <h5 class="card-title" style="color: inherit;">Cameras & Photography</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-4 col-md-2 d-flex align-items-stretch">
-                <div class="item w-100">
-                    <a href="products.html" class="text-decoration-none text-dark">
-                        <img src="media/game.jpg" alt="Gaming" width="80%" class="mx-auto d-block rounded">
-                        <div class="card-body">
-                            <h5 class="card-title" style="color: inherit;">Gaming</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
+  <section class="categories">
+    <div class="category text-white position-relative" style="background:#000; overflow:hidden;">
+      <img src="media/Home/earphone.png" alt="Earphone"
+        style="position:absolute; right:10px; bottom:1px; width:60%; opacity:0.7; z-index:0;">
+      <div style="position:relative; z-index:1; text-align:left;">
+        <span style="font-size:1rem; opacity:0.7;">Enjoy</span>
+        <h3 style="font-size:1.5rem; font-weight:700; margin:0;">With</h3>
+        <div style="font-size:2rem; font-weight:700; opacity:0.15; margin-bottom:10px;">EARPHONE</div>
+        <button class="btn btn-light">Browse</button>
+      </div>
     </div>
-<!-- shop Category end-->
-
-<!-- carousel start -->
-    <div class="container-fluid mt-5">
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="media/carousel/carousel-1.png" class="d-block w-100 h-50" alt="Slide 1">
-                </div>
-                <div class="carousel-item">
-                    <img src="media/carousel/carousel-2.png" class="d-block w-100 h-50" alt="Slide 2">
-                </div>
-                <div class="carousel-item">
-                    <img src="media/carousel/carousel-3.png" class="d-block w-100 h-50" alt="Slide 3">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
+    <div class="category position-relative" style="background:#fdd835; overflow:hidden;">
+      <img src="media/Home/watch.png" alt="Wearable Gadget"
+        style="position:absolute; right:1px; bottom:20px; top:0PX; width:60%; opacity:0.7; z-index:0;">
+      <div style="position:relative; z-index:1; text-align:left;">
+        <span style="font-size:1rem; opacity:0.7;">New</span>
+        <h3 style="font-size:1.5rem; font-weight:700; margin:0;">Wearable</h3>
+        <div style="font-size:2rem; font-weight:700; opacity:0.15; margin-bottom:10px;">GADGET</div>
+        <button class="btn btn-light">Browse</button>
+      </div>
     </div>
-
-    <!-- Laptop Products Showcase Start -->
-<div class="container mt-5">
-    <h2 class="mb-4">Featured Laptops</h2>
-    <div class="row g-4">
-        <div class="col-12 col-md-4">
-            <div class="card h-100 shadow-sm">
-                <img src="media/Featured-Laptops/DELL LAPTOP.jpg" class="card-img-top" alt="Laptop 1">
-                <div class="card-body">
-                    <h5 class="card-title">Dell Inspiron 15</h5>
-                    <p class="card-text">15.6" FHD, Intel i5, 8GB RAM, 512GB SSD</p>
-                    <a href="products.html" class="btn btn-dark">View Details</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-4">
-            <div class="card h-100 shadow-sm">
-                <img src="media/Featured-Laptops/HP-pavilion.jpg" class="card-img-top" alt="Laptop 2">
-                <div class="card-body">
-                    <h5 class="card-title">HP Pavilion x360</h5>
-                    <p class="card-text">14" Touch, Intel i7, 16GB RAM, 1TB SSD</p>
-                    <a href="products.html" class="btn btn-dark">View Details</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-4">
-            <div class="card h-100 shadow-sm">
-                <img src="media/Featured-Laptops/Apple MacBook Air.jpg" class="card-img-top" alt="Laptop 3">
-                <div class="card-body">
-                    <h5 class="card-title">Apple MacBook Air</h5>
-                    <p class="card-text">13" Retina, M2 Chip, 8GB RAM, 256GB SSD</p>
-                    <a href="products.html" class="btn btn-dark">View Details</a>
-                </div>
-            </div>
-        </div>
+    <div class="category text-white position-relative" style="background:#ef5350; overflow:hidden;">
+      <img src="media/Home/laptop.png" alt="Laptop"
+        style="position:absolute; right:1px; bottom:1px; width:60%; opacity:0.7; z-index:0;">
+      <div style="position:relative; z-index:1; text-align:left;">
+        <span style="font-size:1rem; opacity:0.7;">Trend</span>
+        <h3 style="font-size:1.5rem; font-weight:700; margin:0;">Devices</h3>
+        <div style="font-size:2rem; font-weight:700; opacity:0.15; margin-bottom:10px;">LAPTOP</div>
+        <button class="btn btn-light">Browse</button>
+      </div>
     </div>
-</div>
-<!-- Laptop Products Showcase End -->
+    <div class="category position-relative" style="background:#f5f5f5; overflow:hidden;">
+      <img src="media/Home/console.png" alt="Gaming Console"
+        style="position:absolute; right:1px; bottom:0px; width:60%; opacity:0.7; z-index:0; top: 0px;">
+      <div style="position:relative; z-index:1; text-align:left;">
+        <span style="font-size:1rem; opacity:0.7; color: #000;">Best</span>
+        <h3 style="font-size:1.5rem; font-weight:700; margin:0; color: #000;">Gaming</h3>
+        <div style="font-size:2rem; font-weight:700; opacity:0.15; margin-bottom:10px; color: #000;">CONSOLE</div>
+        <button class="btn btn-danger">Browse</button>
+      </div>
+    </div>
+    <div class="category text-white position-relative" style="background:#66bb6a; overflow:hidden;">
+      <img src="media/Home/oculus.png" alt="Oculus"
+        style="position:absolute; right:10px; bottom:0px; width:60%; opacity:0.7; z-index:0;">
+      <div style="position:relative; z-index:1; text-align:left;">
+        <span style="font-size:1rem; opacity:0.7;">Play</span>
+        <h3 style="font-size:1.5rem; font-weight:700; margin:0;">Game</h3>
+        <div style="font-size:2rem; font-weight:700; opacity:0.15; margin-bottom:10px;">OCULUS</div>
+        <button class="btn btn-light">Browse</button>
+      </div>
+    </div>
+    <div class="category text-white position-relative" style="background:#42a5f5; overflow:hidden;">
+      <img src="media/Home/speaker.png" alt="Amazon Speaker"
+        style="position:absolute; right:0px; bottom:10px; width:60%; opacity:0.7; z-index:0; top: 0px;">
+      <div style="position:relative; z-index:1; text-align:left;">
+        <span style="font-size:1rem; opacity:0.7;">New</span>
+        <h3 style="font-size:1.5rem; font-weight:700; margin:0;">Amazon</h3>
+        <div style="font-size:2rem; font-weight:700; opacity:0.15; margin-bottom:10px;">SPEAKER</div>
+        <button class="btn btn-light">Browse</button>
+      </div>
+    </div>
+  </section>
 
 
+  <section class="features d-flex justify-content-around bg-white py-4">
+    <div class="text-center">
+      <i class="bi bi-truck fs-3"></i>
+      <p>Free Shipping</p>
+    </div>
+    <div class="text-center">
+      <i class="bi bi-currency-dollar fs-3"></i>
+      <p>Money Guarantee</p>
+    </div>
+    <div class="text-center">
+      <i class="bi bi-headset fs-3"></i>
+      <p>Online Support 24/7</p>
+    </div>
+    <div class="text-center">
+      <i class="bi bi-shield-lock fs-3"></i>
+      <p>Secure Payment</p>
+    </div>
+  </section>
+
+  <section class="sale-banner">
+    <div>
+      <h2>20% OFF FINAL SMILE</h2>
+      <p>Summer Sale - 15 Nov to 7 Dec</p>
+      <button class="btn btn-light">Shop</button>
+    </div>
+    <img src="media/Home/Headphone1.png" style="width: 30%; padding: 0px;" alt="Headphones">
+  </section>
+
+  <!-- Laptop Products Showcase Start -->
+  <div class="Laptop-products container-fluid mt-5">
+    <div class="position-relative">
+      <button class="btn btn-light position-absolute top-50 start-0 translate-middle-y" id="scrollLeft"
+        style="z-index:2;">
+        &#8592;
+      </button>
+      <div id="laptopScroll" class="d-flex overflow-hidden px-5" style="scroll-behavior:smooth;">
+        <div class="card me-3" style="min-width:250px;">
+          <img src="media/Home/Featured-Laptops/DELL LAPTOP.jpg" class="card-img-top" alt="Dell Inspiron 15">
+          <div class="card-body">
+            <h5 class="card-title">Dell Inspiron 15</h5>
+            <p class="card-text">15.6" FHD, Intel i5, 8GB RAM, 512GB SSD</p>
+            <a href="products.html" class="btn btn-dark">View Details</a>
+          </div>
+        </div>
+        <div class="card me-3" style="min-width:250px;">
+          <img src="media/Home/Featured-Laptops/HP-pavilion.jpg" class="card-img-top" alt="HP Pavilion x360">
+          <div class="card-body">
+            <h5 class="card-title">HP Pavilion x360</h5>
+            <p class="card-text">14" Touch, Intel i7, 16GB RAM, 1TB SSD</p>
+            <a href="products.html" class="btn btn-dark">View Details</a>
+          </div>
+        </div>
+        <div class="card me-3" style="min-width:250px;">
+          <img src="media/Home/Featured-Laptops/Apple MacBook Air.jpg" class="card-img-top" alt="Apple MacBook Air">
+          <div class="card-body">
+            <h5 class="card-title">Apple MacBook Air</h5>
+            <p class="card-text">13" Retina, M2 Chip, 8GB RAM, 256GB SSD</p>
+            <a href="products.html" class="btn btn-dark">View Details</a>
+          </div>
+        </div>
+        <div class="card me-3" style="min-width:250px;">
+          <img src="media/Home/Featured-Laptops/Lenovo-ThinkPad.jpg" class="card-img-top" alt="Lenovo ThinkPad X1">
+          <div class="card-body">
+            <h5 class="card-title">Lenovo ThinkPad X1</h5>
+            <p class="card-text">14" FHD, Intel i7, 16GB RAM, 512GB SSD</p>
+            <a href="products.html" class="btn btn-dark">View Details</a>
+          </div>
+        </div>
+        <div class="card me-3" style="min-width:250px;">
+          <img src="media/Home/Featured-Laptops/Acer-Swift.jpg" class="card-img-top" alt="Acer Swift 3">
+          <div class="card-body">
+            <h5 class="card-title">Acer Swift 3</h5>
+            <p class="card-text">14" FHD, AMD Ryzen 7, 8GB RAM, 512GB SSD</p>
+            <a href="products.html" class="btn btn-dark">View Details</a>
+          </div>
+        </div>
+        <div class="card me-3" style="min-width:250px;">
+          <img src="media/Home/Featured-Laptops/Asus-ZenBook.jpg" class="card-img-top" alt="Asus ZenBook 14">
+          <div class="card-body">
+            <h5 class="card-title">Asus ZenBook 14</h5>
+            <p class="card-text">14" FHD, Intel i5, 8GB RAM, 256GB SSD</p>
+            <a href="products.html" class="btn btn-dark">View Details</a>
+          </div>
+        </div>
+        <div class="card me-3" style="min-width:250px;">
+          <img src="media/Home/Featured-Laptops/MSI-Modern.jpg" class="card-img-top" alt="MSI Modern 15">
+          <div class="card-body">
+            <h5 class="card-title">MSI Modern 15</h5>
+            <p class="card-text">15.6" FHD, Intel i7, 16GB RAM, 1TB SSD</p>
+            <a href="products.html" class="btn btn-dark">View Details</a>
+          </div>
+        </div>
+
+      </div>
+      <button class="btn btn-light position-absolute top-50 end-0 translate-middle-y" id="scrollRight"
+        style="z-index:2;">
+        &#8594;
+      </button>
+    </div>
+  </div>
+  <!-- Laptop Products Showcase End -->
+
+  <!-- phone products showcase start -->
+  <section class="container-fluid mt-3 pt-3 dark-text">
+    <h2 class="mb-4 text-center text-dark fw-bold">The Ultimate Flagship</h2>
+
+    <div class="row g-0">
+      <div class="col-6">
+        <img src="media/Home/Featured-phone/Iphone-1.jpg" alt="Iphone-1" class="img-fluid rounded-start"
+          style="width: 100%; object-fit: cover;">
+      </div>
+      <div class="col-6"> <img src="media/Home/Featured-phone/Iphone-2.jpg" alt="Iphone-2" class="img-fluid rounded-end"
+          style="width: 100%; object-fit: cover;">
+      </div>
+    </div>
+  </section>
+  <!-- phone products showcase end -->
+
+  <!-- Modern Footer Start -->
+  <footer class="bg-white text-light pt-5 pb-4 mt-5">
+    <div class="container">
+      <div class="row gy-4">
+        <!-- Useful Links -->
+        <div class="col-12 col-md-3">
+          <h5 class="mb-3" style="color: #fc8c06;">Useful Links</h5>
+          <ul class="list-unstyled dark-text text-dark">
+            <li><a href="Home.html" class="text-dark text-decoration-none">Home</a></li>
+            <li><a href="products.html" class="text-dark dark-text text-decoration-none">Shop</a></li>
+            <li><a href="cart.html" class="text-dark dark-text text-decoration-none">Cart</a></li>
+            <li><a href="Login.html" class="text-dark dark-text text-decoration-none">Login</a></li>
+            <li><a href="#" class="text-dark dark-text text-decoration-none">About Us</a></li>
+          </ul>
+        </div>
+        <!-- Our Services -->
+        <div class="col-12 col-md-3">
+          <h5 class="mb-3" style="color: #fc8c06;">Our Services</h5>
+          <ul class="list-unstyled dark-text text-dark">
+            <li>Fast Shipping</li>
+            <li>24/7 Support</li>
+            <li>Easy Returns</li>
+            <li>Secure Payments</li>
+            <li>Warranty Products</li>
+          </ul>
+        </div>
+        <!-- Newsletter -->
+        <div class="col-12 col-md-3">
+          <h5 class="mb-3" style="color: #fc8c06;">Our Newsletter</h5>
+          <form>
+            <div class="mb-2">
+              <input type="email" class="form-control" placeholder="Your email" required>
+            </div>
+            <button type="submit" class="btn w-100" style="background-color:#fc8c06; color:#232323;">Subscribe</button>
+          </form>
+          <small class="d-block mt-2" style="color:#fc8c06;">Get the latest deals and updates!</small>
+        </div>
+        <!-- Contact & Social -->
+        <div class="col-12 col-md-3">
+          <h5 class="mb-3" style="color: #fc8c06;">Contact Us</h5>
+          <form>
+            <div class="mb-2">
+              <input type="text" class="form-control" placeholder="Your name" required>
+            </div>
+            <div class="mb-2">
+              <input type="email" class="form-control" placeholder="Your email" required>
+            </div>
+            <div class="mb-2">
+              <textarea class="form-control" rows="2" placeholder="Message" required></textarea>
+            </div>
+            <button type="submit" class="btn w-100" style="background-color:#fc8c06; color:#232323;">Send</button>
+          </form>
+          <div class="mt-3">
+            <a href="#" class="me-3 fs-5" style="color:#ffffff;"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="me-3 fs-5" style="color:#ffffff;"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="me-3 fs-5" style="color:#ffffff;"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="fs-5" style="color:#ffffff;"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="mt-4" style="border-color:#ff8000;">
+      <div class="text-center small dark-text text-dark" style="color:#ffffff;">
+        &copy; 2025 ElectraCart. All rights reserved.
+      </div>
+    </div>
+  </footer>
+  <!-- Modern Footer End -->
 
 
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-
-    <script src="script.js"></script>
-
-
-
+  <!-- js section -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>

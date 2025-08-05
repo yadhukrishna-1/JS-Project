@@ -1,17 +1,4 @@
-// for the navbar scrolling
-// window.addEventListener('scroll', () => {
-//     const navbar = document.getElementById('navbar');
-
-//     if (window.scrollY > 200) {
-//         navbar.classList.add('scrolled')
-//     }
-//     else {
-//         navbar.classList.remove('scrolled')
-//     }
-// })
-
-
-
+// script.js
 // for the search button
 function handleSearch(event) {
     event.preventDefault(); // Prevent actual form submission
@@ -25,37 +12,49 @@ function handleSearch(event) {
 
 //  NEEDTO STUDAY START
 
-// Dark/Light mode logic
-function toggleTheme() {
-    const body = document.body;
-    const logo = document.querySelector('.navbar-brand img');
-    const btn = document.getElementById('theme-toggle');
-    body.classList.toggle('dark-mode');
-    if (body.classList.contains('dark-mode')) {
-        logo.src = 'media/Logo-dark.png'; // Use your dark logo file
-        btn.innerText = '🤍';
-        btn.classList.remove('btn-outline-dark');
-        btn.classList.add('btn-outline-light');
-        localStorage.setItem('theme', 'dark');
-    } else {
-        logo.src = 'media/Logo.png';
-        btn.innerText = '🖤';
-        btn.classList.remove('btn-outline-light');
-        btn.classList.add('btn-outline-dark');
-        localStorage.setItem('theme', 'light');
-    }
+// Dark mode toggle start
+const toggleBtn = document.getElementById('darkModeToggle');
+const logoImg = document.getElementById('logo-img');
+function setDarkMode(on) {
+  document.body.classList.toggle('dark-mode', on);
+  if (on) {
+    logoImg.src = 'media/Home/Logo dark.png';
+    toggleBtn.innerHTML = '<i class="bi bi-brightness-high"></i>';
+    toggleBtn.classList.remove('btn-outline-dark');
+    toggleBtn.classList.add('btn-outline-light');
+  } else {
+    logoImg.src = 'media/Home/Logolight.png';
+    toggleBtn.innerHTML = '<i class="bi bi-moon"></i>';
+    toggleBtn.classList.remove('btn-outline-light');
+    toggleBtn.classList.add('btn-outline-dark');
+  }
 }
-// On page load, set theme from localStorage
-window.addEventListener('DOMContentLoaded', () => {
-    const theme = localStorage.getItem('theme');
-    if (theme === '🖤') {
-        document.body.classList.add('dark-mode');
-        document.querySelector('.navbar-brand img').src = 'media/Logo-dark.png';
-        const btn = document.getElementById('theme-toggle');
-        btn.innerText = '🤍';
-        btn.classList.remove('btn-outline-dark');
-        btn.classList.add('btn-outline-light');
-    }
+// Load preference
+const darkPref = localStorage.getItem('darkMode') === 'true';
+setDarkMode(darkPref);
+toggleBtn.addEventListener('click', () => {
+  const isDark = document.body.classList.toggle('dark-mode');
+  setDarkMode(isDark);
+  localStorage.setItem('darkMode', isDark);
 });
 
 // NEEDTO STUDAY END
+
+// slide button start
+document.getElementById('scrollLeft').onclick = function() {
+  document.getElementById('laptopScroll').scrollBy({left: -300, behavior: 'smooth'});
+};
+document.getElementById('scrollRight').onclick = function() {
+  document.getElementById('laptopScroll').scrollBy({left: 300, behavior: 'smooth'});
+};
+// slide button end
+
+// login page start
+    function login(e) {
+      e.preventDefault();
+      const username = document.getElementById("username").value;
+      localStorage.setItem("user", username);
+      alert("Logged in as " + username);
+      window.location.href = "products.html";
+    }
+// login page end
