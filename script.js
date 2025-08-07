@@ -1,17 +1,4 @@
-// script.js
-// for the search button
-function handleSearch(event) {
-    event.preventDefault(); // Prevent actual form submission
-    const query = event.target.query.value.trim();
-    if (query) {
-        // You can either redirect or filter products dynamically
-        window.location.href = "products.html";
-    }
-}
-
-
 //  NEEDTO STUDAY START
-
 // Dark mode toggle start
 const toggleBtn = document.getElementById('darkModeToggle');
 const logoImg = document.getElementById('logo-img');
@@ -49,12 +36,44 @@ document.getElementById('scrollRight').onclick = function() {
 };
 // slide button end
 
-// login page start
-    function login(e) {
-      e.preventDefault();
-      const username = document.getElementById("username").value;
-      localStorage.setItem("user", username);
-      alert("Logged in as " + username);
-      window.location.href = "products.html";
+// Login button visibility start
+  document.addEventListener("DOMContentLoaded", function () {
+    const authLink = document.getElementById("authLink");
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+    if (!authLink) return;
+
+    if (loggedInUser) {
+      authLink.textContent = "Logout";
+      authLink.href = "#";
+      authLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (confirm("Do you want to logout?")) {
+          localStorage.removeItem("loggedInUser");
+          alert("You have been logged out.");
+          window.location.reload();
+        }
+      });
+    } else {
+      authLink.textContent = "Login";
+      authLink.href = "Login.html";
     }
-// login page end
+  });
+// Login button visibility end
+  function login(event) {
+    event.preventDefault();
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    const user = users.find(u => u.username === username && u.password === password);
+
+    if (user) {
+      localStorage.setItem('loggedInUser', JSON.stringify(user));
+      alert("Login successful!");
+      window.location.href = "Home.html"; // Or dashboard
+    } else {
+      alert("Invalid username or password.");
+    }
+  }
