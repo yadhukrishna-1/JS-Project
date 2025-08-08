@@ -27,6 +27,9 @@ toggleBtn.addEventListener('click', () => {
 
 // NEEDTO STUDAY END
 
+
+
+
 // slide button start
 document.getElementById('scrollLeft').onclick = function() {
   document.getElementById('laptopScroll').scrollBy({left: -300, behavior: 'smooth'});
@@ -36,30 +39,38 @@ document.getElementById('scrollRight').onclick = function() {
 };
 // slide button end
 
+
+
+
 // Login button visibility start
-  document.addEventListener("DOMContentLoaded", function () {
-    const authLink = document.getElementById("authLink");
-    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+document.addEventListener("DOMContentLoaded", function () {
+  const authLink = document.getElementById("authLink");
+  if (!authLink) return; // Prevent errors if navbar not found
 
-    if (!authLink) return;
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    console.log("Logged in user:", loggedInUser);
+  if (loggedInUser) {
+    authLink.textContent = "Logout-LPage";
+    authLink.classList.add("disabled");
+    authLink.href = "#";
+    authLink.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (confirm("Do you want to logout?")) {
+        localStorage.removeItem("loggedInUser");
+        alert("You have been logged out.");
+        window.location.reload();
+      }
+    });
+  } else {
+    authLink.textContent = "Login";
+    authLink.href = "Login.html";
+  }
+});
 
-    if (loggedInUser) {
-      authLink.textContent = "Logout";
-      authLink.href = "#";
-      authLink.addEventListener("click", function (e) {
-        e.preventDefault();
-        if (confirm("Do you want to logout?")) {
-          localStorage.removeItem("loggedInUser");
-          alert("You have been logged out.");
-          window.location.reload();
-        }
-      });
-    } else {
-      authLink.textContent = "Login";
-      authLink.href = "Login.html";
-    }
-  });
 // Login button visibility end
+
+
+
   function login(event) {
     event.preventDefault();
 
@@ -67,12 +78,17 @@ document.getElementById('scrollRight').onclick = function() {
     const password = document.getElementById("password").value.trim();
 
     const users = JSON.parse(localStorage.getItem('users') || '[]');
+    console.log(users);
+    
     const user = users.find(u => u.username === username && u.password === password);
 
     if (user) {
       localStorage.setItem('loggedInUser', JSON.stringify(user));
       alert("Login successful!");
-      window.location.href = "Home.html"; // Or dashboard
+      // window.location.href = "Home.html"; // Or dashboard
+      
+      
+      
     } else {
       alert("Invalid username or password.");
     }

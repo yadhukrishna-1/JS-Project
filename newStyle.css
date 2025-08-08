@@ -171,10 +171,3 @@ body.dark-mode {
 /* Responsive Adjustments using Bootstrap classes only */
 /* No custom media queries needed, use Bootstrap grid and utility classes */
 
-/* Login button toggle */
-.auth-link .disabled {
-  pointer-events: none;
-  opacity: 0.5;
-  cursor: default;
-  color: green;
-}
