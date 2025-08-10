@@ -60,7 +60,7 @@
                     <div class="d-flex align-items-center ms-md-3 mt-3 mt-md-0">
                         <button id="darkModeToggle" class="btn btn-outline-dark me-3" aria-label="Toggle dark mode"><i
                                 class="bi bi-moon"></i></button>
-                        <a href="Login.html" class="me-3 fw-bold text-dark text-decoration-none">Login</a>
+            <a href="Login.html" id="authLink" class="me-3 fw-bold text-dark text-decoration-none auth-link">Login</a>
                         <a href="cart.html" class="d-inline-block"
                             style="width:40px; height:40px; background:#000; border-radius:50%; text-align:center; line-height:40px;">
                             <i class="bi bi-cart3" style="color:#fff; font-size:1.3rem;"></i>
@@ -132,8 +132,8 @@
     </footer>
 
     <!-- Scripts -->
-    <script>
-  document.getElementById('registerForm').addEventListener('submit', function (e) {
+<script>
+document.getElementById('registerForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
     const fullname = document.getElementById('fullname').value.trim();
@@ -148,40 +148,38 @@
 
     // Password validations
     if (password.length < 8) {
-      passwordError.classList.remove('d-none');
-      isValid = false;
+        passwordError.classList.remove('d-none');
+        isValid = false;
     } else {
-      passwordError.classList.add('d-none');
+        passwordError.classList.add('d-none');
     }
 
     if (password !== confirmPassword) {
-      confirmError.classList.remove('d-none');
-      isValid = false;
+        confirmError.classList.remove('d-none');
+        isValid = false;
     } else {
-      confirmError.classList.add('d-none');
+        confirmError.classList.add('d-none');
     }
 
     if (isValid) {
-      // Fetch existing users or initialize array
-      const users = JSON.parse(localStorage.getItem('users') || '[]');
+        // ✅ Always use the same key 'regStorage'
+        const users = JSON.parse(localStorage.getItem('regStorage') || '[]');
 
-      // Check if username already exists
-      const usernameTaken = users.some(u => u.username === username);
-      if (usernameTaken) {
-        alert('Username already taken!');
-        return;
-      }
+        if (users.some(u => u.username === username)) {
+            alert('Username already taken!');
+            return;
+        }
 
-      // Add new user
-      users.push({ fullname, email, username, password });
-      localStorage.setItem('users', JSON.stringify(users));
+        users.push({ fullname, email, username, password });
+        localStorage.setItem('regStorage', JSON.stringify(users));
 
-      alert('Registration successful!');
-      this.reset();
-      window.location.href = 'Login.html';
+        alert('Registration successful!');
+        this.reset();
+        window.location.href = 'Login.html';
     }
-  });
+});
 </script>
+
 
 
 
